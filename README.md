@@ -1,3 +1,3 @@
 # Debug Tools Playbook
 
-This repository provide debugging tools.
+This Ansible playbook provide debugging tools.
