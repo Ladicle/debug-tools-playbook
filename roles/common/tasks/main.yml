@@ -1,0 +1,29 @@
+---
+- name: Install common packages
+  apt: pkg={{ item }}
+  with_items:
+    - git
+    - tig
+    - linux-tools-common
+    - linux-tools-generic
+    - net-tools
+    - strace
+    - tcpdump
+    - strace
+    - patch
+  become: yes
+  tags:
+    - packages
+
+- name: Get OS name
+  shell: uname -r
+  register: osname
+  become: yes
+  tags:
+    - packages
+
+- name: Install os tool
+  apt: pkg=linux-tools-{{ osname.stdout }}
+  become: yes
+  tags:
+    - packages
